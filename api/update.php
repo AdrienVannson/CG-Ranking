@@ -7,14 +7,14 @@ include_once('../model/Rank.class.php');
 
 
 $url = 'https://www.codingame.com/services/LeaderboardsRemoteService/';
-if (true) {
+if (false) {
     $url .= 'getFilteredChallengeLeaderboard';
 }
 else {
     $url .= 'getFilteredPuzzleLeaderboard';
 }
 
-$name = 'code-of-kutulu';
+$name = 'fantastic-bits';
 
 $data = file_get_contents(
     $url,
