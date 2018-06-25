@@ -39,3 +39,9 @@ var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
     }
   }
 });
+
+
+function addPlayer (name)
+{
+    M.toast({html: 'Player '+name+' added!'});
+}

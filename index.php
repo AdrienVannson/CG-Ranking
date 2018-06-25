@@ -20,6 +20,22 @@
 
   <div class="container">
 
+    <div class="row" style="margin-top: 22px;">
+      <form class="col s12 m6">
+
+        <div class="input-field col s6">
+          <input id="pseudo" type="text" onkeydown="if (event.keyCode == 13) {addPlayer(this.value); return false;}">
+          <label for="pseudo">Player's pseudo</label>
+        </div>
+
+        <div class="input-field col s6">
+          <a class="waves-effect waves-light btn" onclick="addPlayer(document.getElementById('pseudo').value)">Search</a>
+        </div>
+
+      </form>
+    </div>
+
+
     <canvas id="chart" width="400" height="200"></canvas>
 
   </div>
