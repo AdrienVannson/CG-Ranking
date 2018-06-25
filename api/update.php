@@ -1,4 +1,5 @@
 <?php
+include_once('../model/User.class.php');
 
 $url = 'https://www.codingame.com/services/LeaderboardsRemoteService/';
 if (true) {
@@ -32,4 +33,8 @@ foreach ($users as $i => $user) {
     $pseudo = $user['codingamer']['pseudo'];
 
     echo $rank . ' ' . $publicHandle . ' ' . $pseudo . "\n";
+
+    $user = new User($publicHandle);
+    $user->setPseudo($pseudo);
+    $user->save();
 }
