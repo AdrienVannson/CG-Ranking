@@ -9,20 +9,24 @@ window.chartColors = [
 ];
 
 var chart = new Chart(document.getElementById('chart').getContext('2d'), {
-  type: 'line',
-  data: {
-    labels: ['1', '2', '3', '4', '5', '6', '7'],
-    datasets: []
-  },
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          reverse: true
+    type: 'line',
+    data: {
+        //labels: ['1', '2', '3', '4', '5', '6', '7'],
+        datasets: []
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    reverse: true
+                }
+            }]
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
         }
-      }]
     }
-  }
 });
 
 
