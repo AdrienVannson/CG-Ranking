@@ -33,7 +33,7 @@ var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
     scales: {
       yAxes: [{
         ticks: {
-          beginAtZero:true
+          reverse: true
         }
       }]
     }
