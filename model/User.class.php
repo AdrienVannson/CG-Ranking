@@ -5,13 +5,20 @@ include_once('connect.php');
 class User
 {
 
-    public function __construct ($info=-1)
+    public function __construct ($info=-1, $isPseudo=false)
     {
         $db = get_db();
 
         if (is_string($info)) {
-            $request = $db->prepare('SELECT id FROM users WHERE publicHandle=?');
-            $request->execute(array($info));
+
+            if ($isPseudo) {
+                $request = $db->prepare('SELECT id FROM users WHERE pseudo=?');
+                $request->execute(array($info));
+            }
+            else {
+                $request = $db->prepare('SELECT id FROM users WHERE publicHandle=?');
+                $request->execute(array($info));
+            }
 
             if ($data = $request->fetch()) {
                 $this->id = $data['id'];
