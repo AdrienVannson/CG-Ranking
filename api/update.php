@@ -3,6 +3,8 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 include_once('../model/User.class.php');
+include_once('../model/Rank.class.php');
+
 
 $url = 'https://www.codingame.com/services/LeaderboardsRemoteService/';
 if (true) {
@@ -30,14 +32,19 @@ $data = file_get_contents(
 $data = json_decode($data, true);
 $users = $data['success']['users'];
 
-foreach ($users as $i => $user) {
-    $rank = $user['rank'];
-    $publicHandle = $user['codingamer']['publicHandle'];
-    $pseudo = $user['codingamer']['pseudo'];
+foreach ($users as $i => $dataUser) {
+    $publicHandle = $dataUser['codingamer']['publicHandle'];
+    $pseudo = $dataUser['codingamer']['pseudo'];
 
-    echo $rank . ' ' . $publicHandle . ' ' . $pseudo . "\n";
+    echo $dataUser['rank'] . ' ' . $publicHandle . ' ' . $pseudo . "\n";
 
     $user = new User($publicHandle);
     $user->setPseudo($pseudo);
     $user->save();
+
+    $rank = new Rank();
+    $rank->setIdUser($user->getId());
+    $rank->setIdGame(1);
+    $rank->setRank($dataUser['rank']);
+    $rank->save();
 }

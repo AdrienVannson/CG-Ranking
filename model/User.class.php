@@ -74,7 +74,7 @@ class User
         $this->publicHandle = $publicHandle;
     }
 
-    public function getPseudo() {
+    public function getPseudo () {
         return $this->pseudo;
     }
     public function setPseudo ($pseudo) {
