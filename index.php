@@ -13,7 +13,7 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">CG Ranks</a>
       <ul id="nav-mobile" class="hide-on-med-and-down right">
-        <li><a>About</a></li>
+        <li><a class="modal-trigger" href="#about">About</a></li>
       </ul>
     </div>
   </nav>
@@ -38,6 +38,18 @@
 
     <canvas id="chart" width="400" height="200"></canvas>
 
+  </div>
+
+  <!-- About -->
+  <div class="modal" id="about">
+    <div class="modal-content">
+      <h2>About CG Ranks</h2>
+      <p>Developed by Adrien VANNSON</p>
+      <p>Contact: <a href"mailto:adrien.vannson@gmail.com">adrien.vannson@gmail.com</a>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat">Close</a>
+    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>

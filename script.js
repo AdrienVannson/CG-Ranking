@@ -36,6 +36,8 @@ var chart = new Chart(document.getElementById('chart').getContext('2d'), {
     }
 });
 
+M.Modal.init(document.getElementById('about'), {});
+
 
 function addPlayer (name)
 {
