@@ -11,11 +11,18 @@ window.chartColors = [
 var chart = new Chart(document.getElementById('chart').getContext('2d'), {
     type: 'line',
     data: {
-        //labels: ['1', '2', '3', '4', '5', '6', '7'],
         datasets: []
     },
     options: {
         scales: {
+            xAxes: [{
+                type: 'time',
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Date'
+                }
+            }],
             yAxes: [{
                 ticks: {
                     reverse: true
@@ -39,12 +46,21 @@ function addPlayer (name)
             var data = JSON.parse(this.responseText);
             var color = window.chartColors[chart.data.datasets.length % window.chartColors.length];
 
+            var points = [];
+            data.forEach (function (info) {
+                points.push({
+                    x: info['date'],
+                    y: info['rank']
+                });
+            });
+
             chart.data.datasets.push({
                 label: name,
-                data: data,
+                data: points,
                 backgroundColor: color,
                 borderColor: color,
-                fill: false
+                fill: false,
+                lineTension: 0
             });
             chart.update();
 
@@ -54,7 +70,4 @@ function addPlayer (name)
 
     req.open('GET', 'api/ranks.php?pseudo='+name, true);
     req.send(null);
-
-
-
 }

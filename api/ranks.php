@@ -19,6 +19,10 @@ while ($data = $request->fetch()) {
     }
     $isFirst = false;
     $rank = new Rank($data['id']);
-    echo $rank->getRank();
+
+    echo '{';
+    echo '"rank":' . $rank->getRank() . ",";
+    echo '"date":"' . $rank->getDate() . '"';
+    echo '}';
 }
 echo ']';
