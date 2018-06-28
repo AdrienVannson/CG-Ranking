@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="input-field col s6 l2">
-                    <a class="waves-effect btn-flat">Add filters</a>
+                    <a class="waves-effect btn-flat modal-trigger" href="#filters">Add filters</a>
                 </div>
 
                 <div class="input-field col s6 l1">
@@ -56,6 +56,38 @@
 
 
         <canvas id="chart" width="400" height="200"></canvas>
+    </div>
+
+    <!-- Filters -->
+    <div class="modal" id="filters">
+        <div class="modal-content">
+            <h2>Filters</h2>
+
+            <form>
+                <div class="input-field">
+                    <select>
+                        <option value="" selected>Everything</option>
+                        <option value="">Last 3 hours</option>
+                        <option value="">Last 6 hours</option>
+                        <option value="">Last 12 hours</option>
+                        <option value="">Last 24 hours</option>
+                        <option value="">Last 3 days</option>
+                        <option value="">Last 5 days</option>
+                    </select>
+                    <label>Show only:</label>
+                </div>
+
+                <div class="input-field">
+                    <label>
+                        <input type="checkbox"/>
+                        <span>Hide computing submissions</span>
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+        </div>
     </div>
 
     <!-- About -->

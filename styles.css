@@ -15,3 +15,8 @@
 .dropdown-content li > a, .dropdown-content li > span {
     color: #7E57C2 !important;
 }
+
+[type="checkbox"]:checked + span:not(.lever)::before {
+    border-right-color: #6200EA;
+    border-bottom-color: #6200EA;
+}
