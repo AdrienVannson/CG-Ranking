@@ -36,6 +36,11 @@ $date = date("Y-m-d H:i:s");
 
 foreach ($users as $i => $dataUser) {
     $publicHandle = $dataUser['codingamer']['publicHandle'];
+
+    if (!isset($dataUser['codingamer']['pseudo'])) { // Deleted account
+        continue;
+    }
+
     $pseudo = $dataUser['codingamer']['pseudo'];
 
     echo $dataUser['rank'] . ' ' . $publicHandle . ' ' . $pseudo . "\n";
