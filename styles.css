@@ -1,8 +1,17 @@
+/*
+    #7E57C2: deep purple 400
+    #6200EA: deep purple A700
+*/
+
 .input-field input[type=text]:focus + label {
-    color: #6200ea !important;
+    color: #6200EA !important;
 }
 
 .input-field input[type=text]:focus {
-    border-bottom: 1px solid #6200ea !important;
-    box-shadow: 0 1px 0 0 #6200ea !important;
+    border-bottom: 1px solid #6200EA !important;
+    box-shadow: 0 1px 0 0 #6200EA !important;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    color: #7E57C2 !important;
 }

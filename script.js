@@ -37,6 +37,9 @@ var chart = new Chart(document.getElementById('chart').getContext('2d'), {
 });
 
 M.Modal.init(document.getElementById('about'), {});
+document.addEventListener('DOMContentLoaded', function() {
+    M.FormSelect.init(document.querySelectorAll('select'));
+});
 
 
 function addPlayer (name)
