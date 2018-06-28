@@ -56,17 +56,22 @@ function addPlayer (name)
                 });
             });
 
-            chart.data.datasets.push({
-                label: name,
-                data: points,
-                backgroundColor: color,
-                borderColor: color,
-                fill: false,
-                lineTension: 0
-            });
-            chart.update();
+            if (points.length == 0) {
+                M.toast({html: 'Player '+name+' not found!'});
+            }
+            else {
+                chart.data.datasets.push({
+                    label: name,
+                    data: points,
+                    backgroundColor: color,
+                    borderColor: color,
+                    fill: false,
+                    lineTension: 0
+                });
+                chart.update();
 
-            M.toast({html: 'Player '+name+' added!'});
+                M.toast({html: 'Player '+name+' added!'});
+            }
         }
     };
 
