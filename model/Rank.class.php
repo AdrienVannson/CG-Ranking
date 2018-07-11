@@ -18,7 +18,6 @@ class Rank
 
             $this->date = $data['date'];
             $this->idUser = $data['user'];
-            $this->idGame = $data['game'];
             $this->rank = $data['rank'];
         }
     }
@@ -28,11 +27,10 @@ class Rank
         $db = get_db();
 
         if ($this->id == -1) {
-            $results = $db->prepare('INSERT INTO ranks (date, user, game, rank) VALUES (?, ?, ?, ?);');
+            $results = $db->prepare('INSERT INTO ranks (date, user, rank) VALUES (?, ?, ?, ?);');
             $results->execute(array(
                     $this->date,
                     $this->idUser,
-                    $this->idGame,
                     $this->rank
             ));
 
@@ -41,11 +39,10 @@ class Rank
             $this->id = $datas['id'];
         }
         else {
-            $results = $db->prepare('UPDATE ranks SET date=?, user=?, game=?, rank=? WHERE id=?;');
+            $results = $db->prepare('UPDATE ranks SET date=?, user=?, rank=? WHERE id=?;');
             $results->execute(array(
                     $this->date,
                     $this->idUser,
-                    $this->idGame,
                     $this->rank,
                     $this->id
             ));
@@ -71,13 +68,6 @@ class Rank
         $this->idUser = $idUser;
     }
 
-    public function getIdGame () {
-        return $this->idGame;
-    }
-    public function setIdGame ($idGame) {
-        $this->idGame = $idGame;
-    }
-
     public function getRank () {
         return $this->rank;
     }
@@ -89,6 +79,5 @@ class Rank
     protected $id;
     protected $date;
     protected $idUser;
-    protected $idGame;
     protected $rank;
 }

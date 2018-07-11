@@ -53,7 +53,6 @@ foreach ($users as $i => $dataUser) {
     $rank = new Rank();
     $rank->setDate($date);
     $rank->setIdUser($user->getId());
-    $rank->setIdGame(1);
     $rank->setRank($dataUser['rank']);
     $rank->save();
 }
