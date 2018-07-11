@@ -27,7 +27,7 @@ class Rank
         $db = get_db();
 
         if ($this->id == -1) {
-            $results = $db->prepare('INSERT INTO ranks (date, user, rank) VALUES (?, ?, ?, ?);');
+            $results = $db->prepare('INSERT INTO ranks (date, user, rank) VALUES (?, ?, ?);');
             $results->execute(array(
                     $this->date,
                     $this->idUser,
