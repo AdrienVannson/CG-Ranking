@@ -1,4 +1,9 @@
 <?php
+// Config
+$name = 'amadeus-challenge';
+$isChallenge = true;
+
+
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -7,14 +12,12 @@ include_once('../model/Rank.class.php');
 
 
 $url = 'https://www.codingame.com/services/LeaderboardsRemoteService/';
-if (false) {
+if ($isChallenge) {
     $url .= 'getFilteredChallengeLeaderboard';
 }
 else {
     $url .= 'getFilteredPuzzleLeaderboard';
 }
-
-$name = 'fantastic-bits';
 
 $data = file_get_contents(
     $url,
@@ -27,7 +30,6 @@ $data = file_get_contents(
         )
     ))
 );
-
 
 $data = json_decode($data, true);
 $users = $data['success']['users'];
