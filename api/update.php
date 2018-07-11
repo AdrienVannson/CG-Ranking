@@ -11,6 +11,17 @@ include_once('../model/User.class.php');
 include_once('../model/Rank.class.php');
 
 
+// Check if the leaderboard really needs to be saved
+$lastDate = new DateTime(getLastSavingDate());
+$currentDate = new DateTime('now');
+
+$elapsedTime = $currentDate->getTimestamp() - $lastDate->getTimestamp();
+
+if ($elapsedTime < 57 * 60) { // 57 min
+    exit();
+}
+
+
 $url = 'https://www.codingame.com/services/LeaderboardsRemoteService/';
 if ($isChallenge) {
     $url .= 'getFilteredChallengeLeaderboard';
