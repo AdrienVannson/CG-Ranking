@@ -24,7 +24,7 @@
         <div style="margin-top: 22px;">
             <form class="row">
 
-                <div class="input-field col s6 l3">
+                <!--<div class="input-field col s6 l3">
                     <select class="icons">
                         <option value="" data-icon="https://static.codingame.com/assets/league_wood_04.b7a42fec.png" selected>Wood 3</option>
                         <option value="" data-icon="https://static.codingame.com/assets/league_wood_04.b7a42fec.png">Wood 2</option>
@@ -35,16 +35,16 @@
                         <option value="" data-icon="https://static.codingame.com/assets/league_legend_04.5e7a7052.png">Legend</option>
                     </select>
                     <label>League</label>
-                </div>
+                </div>-->
 
                 <div class="input-field col s6 l6">
                     <input id="pseudo" type="text" onkeydown="if (event.keyCode == 13) {addPlayer(this.value); return false;}">
                     <label for="pseudo">Player's pseudo</label>
                 </div>
 
-                <div class="input-field col s6 l2">
+                <!--<div class="input-field col s6 l2">
                     <a class="waves-effect btn-flat modal-trigger" href="#filters">Add filters</a>
-                </div>
+                </div>-->
 
                 <div class="input-field col s6 l1">
                     <a class="waves-effect waves-light btn deep-purple accent-4 right"
@@ -59,7 +59,7 @@
     </div>
 
     <!-- Filters -->
-    <div class="modal" id="filters">
+    <!--<div class="modal" id="filters">
         <div class="modal-content">
             <h2>Filters</h2>
 
@@ -88,7 +88,7 @@
         <div class="modal-footer">
             <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
         </div>
-    </div>
+    </div>-->
 
     <!-- About -->
     <div class="modal" id="about">
