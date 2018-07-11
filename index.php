@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>CG Ranks</title>
+    <title>CG Ranking</title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -12,7 +12,7 @@
 
     <nav>
         <div class="nav-wrapper deep-purple">
-            <a href="#" class="brand-logo center">CG Ranks</a>
+            <a href="#" class="brand-logo center">CG Ranking</a>
             <ul id="nav-mobile" class="hide-on-med-and-down right">
                 <li><a class="modal-trigger" href="#about">About</a></li>
             </ul>
@@ -93,7 +93,7 @@
     <!-- About -->
     <div class="modal" id="about">
         <div class="modal-content">
-            <h2>About CG Ranks</h2>
+            <h2>About CG Ranking</h2>
             <p>Developed by Adrien VANNSON</p>
             <p>Contact: <a href="mailto:adrien.vannson@gmail.com">adrien.vannson@gmail.com</a>
         </div>
