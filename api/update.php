@@ -35,13 +35,14 @@ $users = $data['success']['users'];
 $date = date("Y-m-d H:i:s");
 
 foreach ($users as $i => $dataUser) {
-    $publicHandle = $dataUser['codingamer']['publicHandle'];
-
     if (!isset($dataUser['codingamer']['pseudo'])) { // Deleted account
         continue;
     }
 
+    $publicHandle = $dataUser['codingamer']['publicHandle'];
     $pseudo = $dataUser['codingamer']['pseudo'];
+    $league = $dataUser['league']['divisionIndex'];
+    $isInProgress = $dataUser['inProgress'];
 
     echo $dataUser['rank'] . ' ' . $publicHandle . ' ' . $pseudo . "\n";
 
