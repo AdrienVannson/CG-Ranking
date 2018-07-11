@@ -12,13 +12,17 @@ include_once('../model/Rank.class.php');
 
 
 // Check if the leaderboard really needs to be saved
-$lastDate = new DateTime(getLastSavingDate());
-$currentDate = new DateTime('now');
+$lastSavingDate = getLastSavingDate();
 
-$elapsedTime = $currentDate->getTimestamp() - $lastDate->getTimestamp();
+if (strlen($lastSavingDate)) { // Check the difference only if the database isn't empty
+    $lastDate = new DateTime($lastSavingDate);
+    $currentDate = new DateTime('now');
 
-if ($elapsedTime < 57 * 60) { // 57 min
-    exit();
+    $elapsedTime = $currentDate->getTimestamp() - $lastDate->getTimestamp();
+
+    if ($elapsedTime < 57 * 60) { // 57 min
+        exit();
+    }
 }
 
 
