@@ -21,6 +21,9 @@ var chart = new Chart(document.getElementById('chart').getContext('2d'), {
                 scaleLabel: {
                     display: true,
                     labelString: 'Date'
+                },
+                time: {
+                    unit: 'day'
                 }
             }],
             yAxes: [{
