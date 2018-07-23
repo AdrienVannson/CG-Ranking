@@ -28,7 +28,8 @@ var chart = new Chart(document.getElementById('chart').getContext('2d'), {
             }],
             yAxes: [{
                 ticks: {
-                    reverse: true
+                    reverse: true,
+                    min: 1
                 }
             }]
         },
