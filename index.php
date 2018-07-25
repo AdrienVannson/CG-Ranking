@@ -55,7 +55,7 @@
         </div>
 
 
-        <canvas id="chart" width="400" height="200"></canvas>
+        <canvas id="chart"></canvas>
     </div>
 
     <!-- Filters -->
