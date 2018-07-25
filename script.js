@@ -74,7 +74,8 @@ function addPlayer (name)
                     backgroundColor: color,
                     borderColor: color,
                     fill: false,
-                    lineTension: 0
+                    lineTension: 0,
+                    pointRadius: 0
                 });
                 chart.update();
 
