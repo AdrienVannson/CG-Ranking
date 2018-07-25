@@ -37,7 +37,7 @@
                     <label>League</label>
                 </div>-->
 
-                <div class="input-field col s6 l6">
+                <div class="input-field col s8 m10 l6">
                     <input id="pseudo" type="text" onkeydown="if (event.keyCode == 13) {addPlayer(this.value); return false;}">
                     <label for="pseudo">Player's pseudo</label>
                 </div>
@@ -46,8 +46,8 @@
                     <a class="waves-effect btn-flat modal-trigger" href="#filters">Add filters</a>
                 </div>-->
 
-                <div class="input-field col s6 l1">
-                    <a class="waves-effect waves-light btn deep-purple accent-4 right"
+                <div class="input-field col s4 m2 l6">
+                    <a class="waves-effect waves-light btn deep-purple accent-4"
                     onclick="addPlayer(document.getElementById('pseudo').value)">Search</a>
                 </div>
 
