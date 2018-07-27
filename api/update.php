@@ -19,7 +19,7 @@ if (strlen($lastSavingDate)) { // Check the difference only if the database isn'
 
     $elapsedTime = $currentDate->getTimestamp() - $lastDate->getTimestamp();
 
-    if ($elapsedTime < 57 * 60) { // 57 min
+    if ($elapsedTime < MIN_TIME_BETWEEN_UPDATES) { // 57 min
         exit();
     }
 }
