@@ -1,7 +1,6 @@
 <?php
-// Config
-$name = 'amadeus-challenge';
-$isChallenge = true;
+
+include_once('../config.php');
 
 
 ini_set('display_errors', 1);
@@ -27,7 +26,7 @@ if (strlen($lastSavingDate)) { // Check the difference only if the database isn'
 
 
 $url = 'https://www.codingame.com/services/LeaderboardsRemoteService/';
-if ($isChallenge) {
+if (IS_CHALLENGE) {
     $url .= 'getFilteredChallengeLeaderboard';
 }
 else {
@@ -41,7 +40,7 @@ $data = file_get_contents(
         'http' => array(
             'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
             'method'  => 'POST',
-            'content' => '["'.$name.'","2af0331f8cc571c179f93f3db8b8ecd25292201","global",{"active":false,"column":"","filter":""}]'
+            'content' => '["'.GAME_NAME.'","2af0331f8cc571c179f93f3db8b8ecd25292201","global",{"active":false,"column":"","filter":""}]'
         )
     ))
 );
