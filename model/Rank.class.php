@@ -19,6 +19,8 @@ class Rank
             $this->date = $data['date'];
             $this->idUser = $data['user'];
             $this->rank = $data['rank'];
+            $this->agentID = $data['agentID'];
+            $this->isInProgress = $data['isInProgress'];
         }
     }
 
@@ -27,11 +29,13 @@ class Rank
         $db = get_db();
 
         if ($this->id == -1) {
-            $results = $db->prepare('INSERT INTO ranks (date, user, rank) VALUES (?, ?, ?);');
+            $results = $db->prepare('INSERT INTO ranks (date, user, rank, agentID, isInProgress) VALUES (?, ?, ?, ?, ?);');
             $results->execute(array(
                     $this->date,
                     $this->idUser,
-                    $this->rank
+                    $this->rank,
+                    $this->agentID,
+                    (int)$this->isInProgress
             ));
 
             $results = $db->query('SELECT LAST_INSERT_ID() AS id');
@@ -39,11 +43,13 @@ class Rank
             $this->id = $datas['id'];
         }
         else {
-            $results = $db->prepare('UPDATE ranks SET date=?, user=?, rank=? WHERE id=?;');
+            $results = $db->prepare('UPDATE ranks SET date=?, user=?, rank=?, agentID=?, isInProgress=? WHERE id=?;');
             $results->execute(array(
                     $this->date,
                     $this->idUser,
                     $this->rank,
+                    $this->agentID,
+                    $this->isInProgress,
                     $this->id
             ));
         }
@@ -75,11 +81,27 @@ class Rank
         $this->rank = $rank;
     }
 
+    public function getAgentID () {
+        return $this->agentID;
+    }
+    public function setAgentID ($agentID) {
+        $this->agentID = $agentID;
+    }
+
+    public function getIsInProgress () {
+        return $this->isInProgress;
+    }
+    public function setIsInProgress ($isInProgress) {
+        $this->isInProgress = $isInProgress;
+    }
+
 
     protected $id;
     protected $date;
     protected $idUser;
     protected $rank;
+    protected $agentID;
+    protected $isInProgress;
 }
 
 function getLastSavingDate ()
