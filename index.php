@@ -81,7 +81,7 @@
 
                 <div class="input-field">
                     <label>
-                        <input type="checkbox"/>
+                        <input type="checkbox" id="hideInProgress"/>
                         <span>Hide submissions in progress</span>
                     </label>
                 </div>

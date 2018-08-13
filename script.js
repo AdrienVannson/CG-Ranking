@@ -87,6 +87,8 @@ function addPlayer (name)
         }
     };
 
-    req.open('GET', 'api/ranks.php?pseudo='+name, true);
+    var hideInProgress = document.getElementById('hideInProgress').checked;
+
+    req.open('GET', 'api/ranks.php?pseudo='+name+'&hideInProgress='+hideInProgress, true);
     req.send(null);
 }
