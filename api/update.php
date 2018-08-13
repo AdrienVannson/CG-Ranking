@@ -58,8 +58,9 @@ foreach ($users as $i => $dataUser) {
     $publicHandle = $dataUser['codingamer']['publicHandle'];
     $pseudo = $dataUser['codingamer']['pseudo'];
     $league = $dataUser['league']['divisionIndex'];
+    $isInProgress = $dataUser['percentage'] < 100;
 
-    echo $dataUser['rank'] . ' ' . $publicHandle . ' ' . $pseudo . "\n";
+    echo $dataUser['rank'] . ' ' . $publicHandle . ' ' . $pseudo . ' ' . ($isInProgress ? 'true' : 'false') . "\n";
 
 
     $user = new User($publicHandle);
@@ -71,6 +72,6 @@ foreach ($users as $i => $dataUser) {
     $rank->setIdUser($user->getId());
     $rank->setRank($dataUser['rank']);
     $rank->setAgentID($dataUser['agentId']);
-    $rank->setIsInProgress($dataUser['inProgress']);
+    $rank->setIsInProgress($isInProgress);
     $rank->save();
 }
