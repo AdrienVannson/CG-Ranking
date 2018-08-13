@@ -40,10 +40,13 @@ var chart = new Chart(document.getElementById('chart').getContext('2d'), {
     }
 });
 
-M.Modal.init(document.getElementById('about'), {});
-M.Modal.init(document.getElementById('filters'), {});
 document.addEventListener('DOMContentLoaded', function() {
+    M.Modal.init(document.getElementById('about'), {});
+    M.Modal.init(document.getElementById('filters'), {});
+
     M.FormSelect.init(document.querySelectorAll('select'));
+
+    M.FloatingActionButton.init(document.querySelectorAll('.fixed-action-btn'));
 });
 
 

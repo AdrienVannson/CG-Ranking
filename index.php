@@ -42,10 +42,6 @@
                     <label for="pseudo">Player's pseudo</label>
                 </div>
 
-                <!--<div class="input-field col s6 l2">
-                    <a class="waves-effect btn-flat modal-trigger" href="#filters">Add filters</a>
-                </div>-->
-
                 <div class="input-field col s4 m2 l6">
                     <a class="waves-effect waves-light btn deep-purple accent-4"
                     onclick="addPlayer(document.getElementById('pseudo').value)">Search</a>
@@ -58,13 +54,19 @@
         <canvas id="chart"></canvas>
     </div>
 
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect modal-trigger deep-purple accent-4" href="#filters">
+            <i class="large material-icons">mode_edit</i>
+        </a>
+    </div>
+
     <!-- Filters -->
-    <!--<div class="modal" id="filters">
+    <div class="modal" id="filters">
         <div class="modal-content">
             <h2>Filters</h2>
 
             <form>
-                <div class="input-field">
+                <!--<div class="input-field">
                     <select>
                         <option value="" selected>Everything</option>
                         <option value="">Last 3 hours</option>
@@ -75,12 +77,12 @@
                         <option value="">Last 5 days</option>
                     </select>
                     <label>Show only:</label>
-                </div>
+                </div>-->
 
                 <div class="input-field">
                     <label>
                         <input type="checkbox"/>
-                        <span>Hide computing submissions</span>
+                        <span>Hide submissions in progress</span>
                     </label>
                 </div>
             </form>
@@ -88,7 +90,7 @@
         <div class="modal-footer">
             <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
         </div>
-    </div>-->
+    </div>
 
     <!-- About -->
     <div class="modal" id="about">
