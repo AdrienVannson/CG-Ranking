@@ -25,19 +25,6 @@
         <div style="margin-top: 22px;">
             <form class="row">
 
-                <!--<div class="input-field col s6 l3">
-                    <select class="icons">
-                        <option value="" data-icon="https://static.codingame.com/assets/league_wood_04.b7a42fec.png" selected>Wood 3</option>
-                        <option value="" data-icon="https://static.codingame.com/assets/league_wood_04.b7a42fec.png">Wood 2</option>
-                        <option value="" data-icon="https://static.codingame.com/assets/league_wood_04.b7a42fec.png">Wood 1</option>
-                        <option value="" data-icon="https://static.codingame.com/assets/league_bronze_04.99f05c39.png">Bronze</option>
-                        <option value="" data-icon="https://static.codingame.com/assets/league_silver_04.fe77a073.png">Silver</option>
-                        <option value="" data-icon="https://static.codingame.com/assets/league_gold_04.588a6052.png">Gold</option>
-                        <option value="" data-icon="https://static.codingame.com/assets/league_legend_04.5e7a7052.png">Legend</option>
-                    </select>
-                    <label>League</label>
-                </div>-->
-
                 <div class="input-field col s8 m10 l6">
                     <input id="pseudo" type="text" onkeydown="if (event.keyCode == 13) {addPlayer(this.value); return false;}">
                     <label for="pseudo">Player's pseudo</label>
