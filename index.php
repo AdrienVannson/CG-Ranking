@@ -67,12 +67,20 @@
                     <label>Show only:</label>
                 </div>-->
 
-                <div class="input-field">
+                <p>
                     <label>
                         <input type="checkbox" id="hideInProgress"/>
                         <span>Hide submissions in progress</span>
                     </label>
-                </div>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" id="showAgentID"/>
+                        <span>Show agents IDs</span>
+                    </label>
+                </p>
+
             </form>
         </div>
         <div class="modal-footer">

@@ -36,9 +36,29 @@ var chart = new Chart(document.getElementById('chart').getContext('2d'), {
         tooltips: {
             mode: 'index',
             intersect: false,
+            callbacks: {
+                label: function (tooltipItems, data) {
+                    console.log(tooltipItems);
+                    console.log(data);
+
+                    var playerIndex = tooltipItems.datasetIndex;
+                    var rankIndex = tooltipItems.index;
+
+                    var rank = data.datasets[playerIndex].data[rankIndex].y;
+                    var pseudo = data.datasets[playerIndex].label;
+
+                    var res = pseudo + ': ' + rank;
+                    if (document.getElementById('showAgentID').checked) {
+                        res += ' (' + agentsIDs[playerIndex][rankIndex] + ')';
+                    }
+                    return res;
+                },
+            }
         }
     }
 });
+
+var agentsIDs = [];
 
 document.addEventListener('DOMContentLoaded', function() {
     M.Modal.init(document.getElementById('about'), {});
@@ -59,13 +79,19 @@ function addPlayer (name)
             var data = JSON.parse(this.responseText);
             var color = window.chartColors[chart.data.datasets.length % window.chartColors.length];
 
+            playerAgentsIDs = [];
+
             var points = [];
             data.forEach (function (info) {
                 points.push({
                     x: info['date'],
                     y: info['rank']
                 });
+
+                playerAgentsIDs.push(info['agentID']);
             });
+
+            agentsIDs.push(playerAgentsIDs);
 
             if (points.length == 0) {
                 M.toast({html: 'Player '+name+' not found!'});

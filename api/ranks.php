@@ -25,7 +25,8 @@ while ($data = $request->fetch()) {
 
     echo '{';
     echo '"rank":' . $rank->getRank() . ",";
-    echo '"date":"' . $rank->getDate() . '"';
+    echo '"date":"' . $rank->getDate() . '",';
+    echo '"agentID":' . $rank->getAgentID();
     echo '}';
 }
 echo ']';
