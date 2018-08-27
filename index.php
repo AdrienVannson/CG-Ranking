@@ -25,14 +25,29 @@
         <div style="margin-top: 22px;">
             <form class="row">
 
-                <div class="input-field col s8 m10 l6">
+                <div class="input-field col s12 l3">
+                    <select>
+                        <optgroup label="Multis">
+                            <option value="5">Coders Strike Back</option>
+                            <option value="4">Tron Battle</option>
+                            <option value="3">Code of Kutulu</option>
+                        </optgroup>
+                        <optgroup label="Contests">
+                            <option value="2" selected>Legends of Code and Magic</option>
+                            <option value="1">Amadeus challenge</option>
+                        </optgroup>
+                    </select>
+                    <label>Game:</label>
+                </div>
+
+                <div class="input-field col s8 m10 l8">
                     <input id="pseudo" type="text" onkeydown="if (event.keyCode == 13) {addPlayer(this.value); return false;}">
                     <label for="pseudo">Player's pseudo</label>
                 </div>
 
-                <div class="input-field col s4 m2 l6">
-                    <a class="waves-effect waves-light btn deep-purple accent-4"
-                    onclick="addPlayer(document.getElementById('pseudo').value)">Search</a>
+                <div class="input-field col s4 m2 l1">
+                    <a class="waves-effect waves-light btn deep-purple accent-4 right"
+                       onclick="addPlayer(document.getElementById('pseudo').value)">Search</a>
                 </div>
 
             </form>
