@@ -1,3 +1,7 @@
+<?php
+include_once(__DIR__.'/model/Game.class.php');
+?>
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -28,13 +32,18 @@
                 <div class="input-field col s12 l3">
                     <select>
                         <optgroup label="Multis">
-                            <option value="5">Coders Strike Back</option>
-                            <option value="4">Tron Battle</option>
-                            <option value="3">Code of Kutulu</option>
+                            <?php
+                            foreach (getMultis() as $game) {
+                                echo '<option value="' . $game->getId() . '">' . $game->getName() . '</option>';
+                            }
+                            ?>
                         </optgroup>
                         <optgroup label="Contests">
-                            <option value="2" selected>Legends of Code and Magic</option>
-                            <option value="1">Amadeus challenge</option>
+                            <?php
+                            foreach (getContests() as $game) {
+                                echo '<option value="' . $game->getId() . '">' . $game->getName() . '</option>';
+                            }
+                            ?>
                         </optgroup>
                     </select>
                     <label>Game:</label>
