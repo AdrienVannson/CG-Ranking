@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>CG Ranking</title>
+    <meta name="description" content="CG-Ranking is a tool that shows the evolution of ranking during CodinGame contests."/>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -96,6 +97,7 @@
     <div class="modal" id="about">
         <div class="modal-content">
             <h2>About CG Ranking</h2>
+            <p>CG-Ranking is a tool that shows the evolution of ranking during CodinGame contests.</p>
             <p>Developed by Adrien VANNSON</p>
             <p>Contact: <a href="mailto:adrien.vannson@protonmail.com">adrien.vannson@protonmail.com</a>
         </div>
