@@ -38,9 +38,6 @@ var chart = new Chart(document.getElementById('chart').getContext('2d'), {
             intersect: false,
             callbacks: {
                 label: function (tooltipItems, data) {
-                    console.log(tooltipItems);
-                    console.log(data);
-
                     var playerIndex = tooltipItems.datasetIndex;
                     var rankIndex = tooltipItems.index;
 
