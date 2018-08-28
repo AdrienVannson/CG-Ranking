@@ -88,12 +88,12 @@ function addPlayer (name)
                 playerAgentsIDs.push(info['agentID']);
             });
 
-            agentsIDs.push(playerAgentsIDs);
-
             if (points.length == 0) {
                 M.toast({html: 'Player '+name+' not found!'});
             }
             else {
+                agentsIDs.push(playerAgentsIDs);
+
                 chart.data.datasets.push({
                     label: name,
                     data: points,
