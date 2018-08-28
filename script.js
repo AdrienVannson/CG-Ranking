@@ -110,8 +110,13 @@ function addPlayer (name)
         }
     };
 
+    var game = document.getElementById('game').value;
     var hideInProgress = document.getElementById('hideInProgress').checked;
 
-    req.open('GET', 'api/ranks.php?pseudo='+name+'&hideInProgress='+hideInProgress, true);
+    req.open('GET', 'api/ranks.php?pseudo=' + name
+                               + '&game=' + game
+                               + '&hideInProgress=' + hideInProgress,
+    true);
+
     req.send(null);
 }

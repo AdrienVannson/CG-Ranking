@@ -1,3 +1,7 @@
+<?php
+include_once(__DIR__.'/model/Game.class.php');
+?>
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -25,14 +29,34 @@
         <div style="margin-top: 22px;">
             <form class="row">
 
-                <div class="input-field col s8 m10 l6">
+                <div class="input-field col s12 l3">
+                    <select id="game">
+                        <optgroup label="Multis">
+                            <?php
+                            foreach (getMultis() as $game) {
+                                echo '<option value="' . $game->getId() . '">' . $game->getName() . '</option>';
+                            }
+                            ?>
+                        </optgroup>
+                        <optgroup label="Contests">
+                            <?php
+                            foreach (getContests() as $game) {
+                                echo '<option value="' . $game->getId() . '">' . $game->getName() . '</option>';
+                            }
+                            ?>
+                        </optgroup>
+                    </select>
+                    <label>Game:</label>
+                </div>
+
+                <div class="input-field col s8 m10 l8">
                     <input id="pseudo" type="text" onkeydown="if (event.keyCode == 13) {addPlayer(this.value); return false;}">
                     <label for="pseudo">Player's pseudo</label>
                 </div>
 
-                <div class="input-field col s4 m2 l6">
-                    <a class="waves-effect waves-light btn deep-purple accent-4"
-                    onclick="addPlayer(document.getElementById('pseudo').value)">Search</a>
+                <div class="input-field col s4 m2 l1">
+                    <a class="waves-effect waves-light btn deep-purple accent-4 right"
+                       onclick="addPlayer(document.getElementById('pseudo').value)">Search</a>
                 </div>
 
             </form>
