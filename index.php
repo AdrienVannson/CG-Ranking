@@ -30,7 +30,7 @@ include_once(__DIR__.'/model/Game.class.php');
             <form class="row">
 
                 <div class="input-field col s12 l3">
-                    <select>
+                    <select id="game">
                         <optgroup label="Multis">
                             <?php
                             foreach (getMultis() as $game) {

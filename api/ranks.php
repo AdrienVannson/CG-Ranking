@@ -6,12 +6,16 @@ $db = get_db();
 
 $pseudo = $_GET['pseudo'];
 $hideInProgress = $_GET['hideInProgress'] == 'true';
+$game = $_GET['game'];
 
 
 $user = new User($pseudo, true);
 
-$request = $db->prepare('SELECT id FROM ranks WHERE user=?' . ($hideInProgress ? ' AND isInProgress=0' : ''));
-$request->execute(array($user->getId()));
+$request = $db->prepare('SELECT id FROM ranks WHERE user=? AND game=?' . ($hideInProgress ? ' AND isInProgress=0' : ''));
+$request->execute(array(
+    $user->getId(),
+    $game
+));
 
 echo '[';
 $isFirst = true;
