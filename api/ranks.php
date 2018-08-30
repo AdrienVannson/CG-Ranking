@@ -9,7 +9,7 @@ $hideInProgress = $_GET['hideInProgress'] == 'true';
 $game = $_GET['game'];
 
 
-$user = new User($pseudo, true);
+$user = new User($pseudo);
 
 $request = $db->prepare('SELECT id FROM ranks WHERE user=? AND game=?' . ($hideInProgress ? ' AND isInProgress=0' : ''));
 $request->execute(array(

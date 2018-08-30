@@ -5,20 +5,14 @@ include_once('connect.php');
 class User
 {
 
-    public function __construct ($info=-1, $isPseudo=false)
+    public function __construct ($info=-1)
     {
         $db = get_db();
 
         if (is_string($info)) {
 
-            if ($isPseudo) {
-                $request = $db->prepare('SELECT id FROM users WHERE pseudo=?');
-                $request->execute(array($info));
-            }
-            else {
-                $request = $db->prepare('SELECT id FROM users WHERE publicHandle=?');
-                $request->execute(array($info));
-            }
+            $request = $db->prepare('SELECT id FROM users WHERE pseudo=?');
+            $request->execute(array($info));
 
             if ($data = $request->fetch()) {
                 $this->id = $data['id'];
@@ -26,19 +20,16 @@ class User
             else {
                 $this->id = -1;
             }
-
-            $this->publicHandle = $info;
         }
         else {
             $this->id = $info;
         }
 
         if($this->id != -1) {
-            $request = $db->prepare('SELECT * FROM users WHERE id=?');
+            $request = $db->prepare('SELECT pseudo FROM users WHERE id=?');
             $request->execute(array($this->id));
             $data = $request->fetch();
 
-            $this->publicHandle = $data['publicHandle'];
             $this->pseudo = $data['pseudo'];
         }
     }
@@ -49,9 +40,8 @@ class User
         $db = get_db();
 
         if ($this->id == -1) {
-            $results = $db->prepare('INSERT INTO users (publicHandle, pseudo) VALUES (?, ?);');
+            $results = $db->prepare('INSERT INTO users (pseudo) VALUES (?);');
             $results->execute(array(
-                    $this->publicHandle,
                     $this->pseudo
             ));
 
@@ -60,9 +50,8 @@ class User
             $this->id = $datas['id'];
         }
         else {
-            $results = $db->prepare('UPDATE users SET publicHandle=?, pseudo=? WHERE id=?;');
+            $results = $db->prepare('UPDATE users SET pseudo=? WHERE id=?;');
             $results->execute(array(
-                    $this->publicHandle,
                     $this->pseudo,
                     $this->id
             ));
@@ -74,13 +63,6 @@ class User
         return $this->id;
     }
 
-    public function getPublicHandle () {
-        return $this->publicHandle;
-    }
-    public function setPublicHandle ($publicHandle) {
-        $this->publicHandle = $publicHandle;
-    }
-
     public function getPseudo () {
         return $this->pseudo;
     }
@@ -90,6 +72,5 @@ class User
 
 
     protected $id;
-    protected $publicHandle;
     protected $pseudo;
 }
