@@ -56,6 +56,7 @@ var chart = new Chart(document.getElementById('chart').getContext('2d'), {
 });
 
 var agentsIDs = [];
+var players = [];
 
 document.addEventListener('DOMContentLoaded', function() {
     M.Modal.init(document.getElementById('about'), {});
@@ -69,6 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function addPlayer (name)
 {
+    if (players.indexOf(name) != -1) {
+        M.toast({html: 'Player '+name+' is already displayed!'});
+        return;
+    }
+
     const req = new XMLHttpRequest();
 
     req.onreadystatechange = function(event) {
@@ -104,6 +110,8 @@ function addPlayer (name)
                     pointRadius: 0
                 });
                 chart.update();
+
+                players.push(name);
 
                 M.toast({html: 'Player '+name+' added!'});
             }
