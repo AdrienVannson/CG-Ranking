@@ -19,7 +19,14 @@ include_once(__DIR__.'/model/Game.class.php');
         <div class="nav-wrapper deep-purple">
             <a href="#" class="brand-logo center">CG Ranking</a>
             <ul id="nav-mobile" class="hide-on-med-and-down right">
-                <li><a class="modal-trigger" href="#about">About</a></li>
+                <li>
+                    <a href="#" id="arrow-back" onclick="update()">
+                        <i class="material-icons">refresh</i>
+                    </a>
+                </li>
+                <li>
+                    <a class="modal-trigger" href="#about">About</a>
+                </li>
             </ul>
         </div>
     </nav>
