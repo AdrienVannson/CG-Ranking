@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-function addPlayer (name)
+function addPlayer (name, showToasts=true)
 {
     if (players.indexOf(name) != -1) {
         M.toast({html: 'Player '+name+' is already displayed!'});
@@ -95,7 +95,9 @@ function addPlayer (name)
             });
 
             if (points.length == 0) {
-                M.toast({html: 'Player '+name+' not found!'});
+                if (showToasts) {
+                    M.toast({html: 'Player '+name+' not found!'});
+                }
             }
             else {
                 agentsIDs.push(playerAgentsIDs);
@@ -113,7 +115,9 @@ function addPlayer (name)
 
                 players.push(name);
 
-                M.toast({html: 'Player '+name+' added!'});
+                if (showToasts) {
+                    M.toast({html: 'Player '+name+' added!'});
+                }
             }
         }
     };
@@ -127,4 +131,20 @@ function addPlayer (name)
     true);
 
     req.send(null);
+}
+
+function update ()
+{
+    // Clear the chart
+    chart.data.datasets = [];
+    chart.update();
+
+    var oldPlayers = players;
+    players = [];
+
+    oldPlayers.forEach(function(player) {
+        addPlayer(player, showToasts=false);
+    });
+
+    M.toast({html: 'Chart updated!'});
 }
