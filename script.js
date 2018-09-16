@@ -14,6 +14,7 @@ var chart = new Chart(document.getElementById('chart').getContext('2d'), {
         datasets: []
     },
     options: {
+        responsive: false,
         scales: {
             xAxes: [{
                 type: 'time',
@@ -65,6 +66,12 @@ document.addEventListener('DOMContentLoaded', function() {
     M.FormSelect.init(document.querySelectorAll('select'));
 
     M.FloatingActionButton.init(document.querySelectorAll('.fixed-action-btn'));
+
+    chart.resize();
+});
+
+window.addEventListener("resize", function() {
+    chart.resize();
 });
 
 
