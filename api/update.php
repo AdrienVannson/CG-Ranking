@@ -1,10 +1,5 @@
 <?php
-
 include_once('../config.php');
-
-
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 
 include_once('../model/User.class.php');
 include_once('../model/Rank.class.php');
