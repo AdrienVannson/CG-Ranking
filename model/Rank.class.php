@@ -17,6 +17,7 @@ class Rank
             $data = $request->fetch();
 
             $this->date = $data['date'];
+            $this->game = $data['game'];
             $this->idUser = $data['user'];
             $this->rank = $data['rank'];
             $this->agentID = $data['agentID'];
@@ -29,9 +30,10 @@ class Rank
         $db = get_db();
 
         if ($this->id == -1) {
-            $results = $db->prepare('INSERT INTO ranks (date, user, rank, agentID, isInProgress) VALUES (?, ?, ?, ?, ?);');
+            $results = $db->prepare('INSERT INTO ranks (date, game, user, rank, agentID, isInProgress) VALUES (?, ?, ?, ?, ?, ?);');
             $results->execute(array(
                     $this->date,
+                    $this->game,
                     $this->idUser,
                     $this->rank,
                     $this->agentID,
@@ -43,9 +45,10 @@ class Rank
             $this->id = $datas['id'];
         }
         else {
-            $results = $db->prepare('UPDATE ranks SET date=?, user=?, rank=?, agentID=?, isInProgress=? WHERE id=?;');
+            $results = $db->prepare('UPDATE ranks SET date=?, game=?, user=?, rank=?, agentID=?, isInProgress=? WHERE id=?;');
             $results->execute(array(
                     $this->date,
+                    $this->game,
                     $this->idUser,
                     $this->rank,
                     $this->agentID,
@@ -65,6 +68,13 @@ class Rank
     }
     public function setDate ($date) {
         $this->date = $date;
+    }
+
+    public function getGame () {
+        return $this->game;
+    }
+    public function setGame ($game) {
+        $this->game = $game;
     }
 
     public function getIdUser () {
@@ -98,6 +108,7 @@ class Rank
 
     protected $id;
     protected $date;
+    protected $game;
     protected $idUser;
     protected $rank;
     protected $agentID;

@@ -16,7 +16,9 @@ class Game
         $data = $request->fetch();
 
         $this->name = $data['name'];
+        $this->formattedName = $data['formattedName'];
         $this->isContest = $data['isContest'];
+        $this->isWatched = $data['isWatched'];
     }
 
 
@@ -28,14 +30,38 @@ class Game
         return $this->name;
     }
 
+    public function getFormattedName () {
+        return $this->formattedName;
+    }
+
     public function getIsContest () {
         return $this->isContest;
+    }
+
+    public function getIsWatched () {
+        return $this->isWatched;
     }
 
 
     protected $id;
     protected $name;
+    protected $formattedName;
     protected $isContest;
+    protected $isWatched;
+}
+
+function getGames ()
+{
+    $request = get_db()->prepare('SELECT id FROM games');
+    $request->execute(array());
+
+    $games = [];
+
+    while ($data = $request->fetch()) {
+        $games[] = new Game($data['id']);
+    }
+
+    return $games;
 }
 
 function getMultis ()
