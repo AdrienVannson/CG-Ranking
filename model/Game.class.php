@@ -33,6 +33,11 @@ class Game
         return $data['lastSavingDate'];
     }
 
+    public function isGlobal ()
+    {
+        return $this->formattedName == 'global';
+    }
+
 
     public function getId () {
         return $this->id;
@@ -83,7 +88,7 @@ function getGames ()
 
 function getMultis ()
 {
-    $request = get_db()->prepare('SELECT id FROM games WHERE isContest=0');
+    $request = get_db()->prepare('SELECT id FROM games WHERE isContest=0 AND formattedName != "global"');
     $request->execute(array());
 
     $games = [];
@@ -97,7 +102,7 @@ function getMultis ()
 
 function getContests ()
 {
-    $request = get_db()->prepare('SELECT id FROM games WHERE isContest=1');
+    $request = get_db()->prepare('SELECT id FROM games WHERE isContest=1 AND formattedName != "global"');
     $request->execute(array());
 
     $games = [];

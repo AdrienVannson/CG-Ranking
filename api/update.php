@@ -29,11 +29,19 @@ foreach (getGames() as $game) {
     }
 
     $url = 'https://www.codingame.com/services/LeaderboardsRemoteService/';
-    if ($game->getIsContest()) {
-        $url .= 'getFilteredChallengeLeaderboard';
+    if ($game->isGlobal()) {
+        $url .= 'getGlobalLeaderboard';
+        $requestContent = '[1, {"active":false,"column":"","filter":""}, "2af0331f8cc571c179f93f3db8b8ecd25292201", true, "global"]';
     }
     else {
-        $url .= 'getFilteredPuzzleLeaderboard';
+        if ($game->getIsContest()) {
+            $url .= 'getFilteredChallengeLeaderboard';
+        }
+        else {
+            $url .= 'getFilteredPuzzleLeaderboard';
+        }
+
+        $requestContent = '["'.$game->getFormattedName().'","2af0331f8cc571c179f93f3db8b8ecd25292201","global",{"active":false,"column":"","filter":""}]';
     }
 
     $data = file_get_contents(
@@ -43,7 +51,7 @@ foreach (getGames() as $game) {
             'http' => array(
                 'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
                 'method'  => 'POST',
-                'content' => '["'.$game->getFormattedName().'","2af0331f8cc571c179f93f3db8b8ecd25292201","global",{"active":false,"column":"","filter":""}]'
+                'content' => $requestContent
             )
         ))
     );
@@ -59,9 +67,8 @@ foreach (getGames() as $game) {
         }
 
         $pseudo = $dataUser['codingamer']['pseudo'];
-        $isInProgress = $dataUser['percentage'] < 100;
 
-        //echo $dataUser['rank'] . ' ' . $pseudo . ' ' . ($isInProgress ? 'true' : 'false') . "\n";
+        //echo $dataUser['rank'] . ' ' . $pseudo . "\n";
 
         $user = new User($pseudo);
         $user->save();
@@ -71,8 +78,12 @@ foreach (getGames() as $game) {
         $rank->setGame($game->getId());
         $rank->setIdUser($user->getId());
         $rank->setRank($dataUser['rank']);
-        $rank->setAgentID($dataUser['agentId']);
-        $rank->setIsInProgress($isInProgress);
+
+        if (!$game->isGlobal()) {
+            $rank->setAgentID($dataUser['agentId']);
+            $rank->setIsInProgress($dataUser['percentage'] < 100);
+        }
+
         $rank->save();
     }
 }
