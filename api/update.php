@@ -59,7 +59,6 @@ foreach (getGames() as $game) {
         }
 
         $pseudo = $dataUser['codingamer']['pseudo'];
-        $league = $dataUser['league']['divisionIndex'];
         $isInProgress = $dataUser['percentage'] < 100;
 
         //echo $dataUser['rank'] . ' ' . $pseudo . ' ' . ($isInProgress ? 'true' : 'false') . "\n";
