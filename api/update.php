@@ -8,25 +8,24 @@ include_once('../model/Rank.class.php');
 include_once('../model/Game.class.php');
 
 
-// Check if the leaderboard really needs to be saved
-$lastSavingDate = getLastSavingDate();
-
-if (strlen($lastSavingDate)) { // Check the difference only if the database isn't empty
-    $lastDate = new DateTime($lastSavingDate);
-    $currentDate = new DateTime('now');
-
-    $elapsedTime = $currentDate->getTimestamp() - $lastDate->getTimestamp();
-
-    if ($elapsedTime < MIN_TIME_BETWEEN_UPDATES) { // 57 min
-        exit();
-    }
-}
-
-
 foreach (getGames() as $game) {
 
     if (!$game->getIsWatched()) {
         continue;
+    }
+
+    // Check if it's time to save the leaderboard
+    $lastSavingDate = $game->getLastSavingDate();
+
+    if (strlen($lastSavingDate)) { // Check the difference only if the database isn't empty
+        $lastDate = new DateTime($lastSavingDate);
+        $currentDate = new DateTime('now');
+
+        $elapsedTime = $currentDate->getTimestamp() - $lastDate->getTimestamp();
+
+        if ($elapsedTime < $game->getTimeBetweenUpdates()) {
+            continue;
+        }
     }
 
     $url = 'https://www.codingame.com/services/LeaderboardsRemoteService/';

@@ -19,6 +19,18 @@ class Game
         $this->formattedName = $data['formattedName'];
         $this->isContest = $data['isContest'];
         $this->isWatched = $data['isWatched'];
+        $this->timeBetweenUpdates = $data['timeBetweenUpdates'];
+    }
+
+    public function getLastSavingDate ()
+    {
+        $db = get_db();
+
+        $request = $db->prepare('SELECT MAX(date) AS lastSavingDate FROM ranks WHERE game=?');
+        $request->execute(array($this->id));
+        $data = $request->fetch();
+
+        return $data['lastSavingDate'];
     }
 
 
@@ -42,12 +54,17 @@ class Game
         return $this->isWatched;
     }
 
+    public function getTimeBetweenUpdates () {
+        return $this->timeBetweenUpdates;
+    }
+
 
     protected $id;
     protected $name;
     protected $formattedName;
     protected $isContest;
     protected $isWatched;
+    protected $timeBetweenUpdates;
 }
 
 function getGames ()

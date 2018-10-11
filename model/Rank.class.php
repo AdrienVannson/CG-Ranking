@@ -114,12 +114,3 @@ class Rank
     protected $agentID;
     protected $isInProgress;
 }
-
-function getLastSavingDate ()
-{
-    $db = get_db();
-
-    $results = $db->query('SELECT MAX(date) AS last_saving_date FROM ranks');
-    $datas = $results->fetch();
-    return $datas['last_saving_date'];
-}
