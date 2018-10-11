@@ -38,20 +38,20 @@ include_once(__DIR__.'/model/Game.class.php');
 
                 <div class="input-field col s12 l3">
                     <select id="game" onchange="update();">
-                        <!--<optgroup label="Multis">
+                        <optgroup label="Multis">
                             <?php
                             foreach (getMultis() as $game) {
                                 echo '<option value="' . $game->getId() . '">' . $game->getName() . '</option>';
                             }
                             ?>
                         </optgroup>
-                        <optgroup label="Contests">-->
+                        <optgroup label="Contests">
                             <?php
                             foreach (getContests() as $game) {
                                 echo '<option value="' . $game->getId() . '">' . $game->getName() . '</option>';
                             }
                             ?>
-                        <!--</optgroup>-->
+                        </optgroup>
                     </select>
                     <label>Game:</label>
                 </div>
