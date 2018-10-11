@@ -83,6 +83,10 @@ foreach (getGames() as $game) {
             $rank->setAgentID($dataUser['agentId']);
             $rank->setIsInProgress($dataUser['percentage'] < 100);
         }
+        else {
+            $rank->setAgentID(-1);
+            $rank->setIsInProgress(false);
+        }
 
         $rank->save();
     }
