@@ -113,3 +113,11 @@ function getContests ()
 
     return $games;
 }
+
+function getGlobal ()
+{
+    $request = get_db()->prepare('SELECT id FROM games WHERE formattedName = "global"');
+    $request->execute(array());
+
+    return new Game($request->fetch()['id']);
+}
