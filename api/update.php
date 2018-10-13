@@ -8,6 +8,8 @@ include_once('../model/Rank.class.php');
 include_once('../model/Game.class.php');
 
 
+$gameSaved = false;
+
 foreach (getGames() as $game) {
 
     if (!$game->getIsWatched()) {
@@ -27,6 +29,12 @@ foreach (getGames() as $game) {
             continue;
         }
     }
+
+    // Save only one multi at a time (always save contests)
+    if (!$game->getIsContest() && $gameSaved) {
+        continue;
+    }
+    $gameSaved = true;
 
     $url = 'https://www.codingame.com/services/LeaderboardsRemoteService/';
     if ($game->isGlobal()) {
