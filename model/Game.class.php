@@ -72,9 +72,9 @@ class Game
     protected $timeBetweenUpdates;
 }
 
-function getGames ()
+function getGames ($requestOptions='')
 {
-    $request = get_db()->prepare('SELECT id FROM games');
+    $request = get_db()->prepare('SELECT id FROM games ' . $requestOptions . ' ORDER BY name');
     $request->execute(array());
 
     $games = [];
@@ -88,30 +88,12 @@ function getGames ()
 
 function getMultis ()
 {
-    $request = get_db()->prepare('SELECT id FROM games WHERE isContest=0 AND formattedName != "global"');
-    $request->execute(array());
-
-    $games = [];
-
-    while ($data = $request->fetch()) {
-        $games[] = new Game($data['id']);
-    }
-
-    return $games;
+    return getGames('WHERE isContest=0 AND formattedName != "global"');
 }
 
 function getContests ()
 {
-    $request = get_db()->prepare('SELECT id FROM games WHERE isContest=1 AND formattedName != "global"');
-    $request->execute(array());
-
-    $games = [];
-
-    while ($data = $request->fetch()) {
-        $games[] = new Game($data['id']);
-    }
-
-    return $games;
+    return getGames('WHERE isContest=1 AND formattedName != "global"');
 }
 
 function getGlobal ()
