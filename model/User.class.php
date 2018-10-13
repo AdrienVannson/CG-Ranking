@@ -20,17 +20,22 @@ class User
             else {
                 $this->id = -1;
             }
+
+            $this->pseudo = $info;
         }
         else {
             $this->id = $info;
-        }
 
-        if($this->id != -1) {
-            $request = $db->prepare('SELECT pseudo FROM users WHERE id=?');
-            $request->execute(array($this->id));
-            $data = $request->fetch();
+            if ($this->id != -1) {
+                $request = $db->prepare('SELECT pseudo FROM users WHERE id=?');
+                $request->execute(array($this->id));
+                $data = $request->fetch();
 
-            $this->pseudo = $data['pseudo'];
+                $this->pseudo = $data['pseudo'];
+            }
+            else {
+                $this->pseudo = '';
+            }
         }
     }
 
