@@ -44,7 +44,7 @@ include_once(__DIR__.'/model/Game.class.php');
                         echo '<option value="' . $game->getId() . '">' . $game->getName() . '</option>';
                         ?>
 
-                        <optgroup label="Multis">
+                        <optgroup label="Multiplayer puzzles">
                             <?php
                             foreach (getMultis() as $game) {
                                 echo '<option value="' . $game->getId() . '">' . $game->getName() . '</option>';
