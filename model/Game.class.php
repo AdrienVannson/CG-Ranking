@@ -103,3 +103,8 @@ function getGlobal ()
 
     return new Game($request->fetch()['id']);
 }
+
+function getCurrentContests ()
+{
+    return getGames('WHERE isContest=1 AND isWatched=1');
+}

@@ -40,6 +40,10 @@ include_once(__DIR__.'/model/Game.class.php');
                     <select id="game" onchange="update();">
 
                         <?php
+                        foreach (getCurrentContests() as $game) {
+                            echo '<option value="' . $game->getId() . '">' . $game->getName() . '</option>';
+                        }
+
                         $game = getGlobal();
                         echo '<option value="' . $game->getId() . '">' . $game->getName() . '</option>';
                         ?>
