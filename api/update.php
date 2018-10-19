@@ -87,12 +87,17 @@ foreach (getGames() as $game) {
         $rank->setIdUser($user->getId());
         $rank->setRank($dataUser['rank']);
 
-        if (!$game->isGlobal()) {
+        if (isset($dataUser['agentId'])) {
             $rank->setAgentID($dataUser['agentId']);
-            $rank->setIsInProgress($dataUser['percentage'] < 100);
         }
         else {
             $rank->setAgentID(-1);
+        }
+
+        if (isset($dataUser['percentage'])) {
+            $rank->setIsInProgress($dataUser['percentage'] < 100);
+        }
+        else {
             $rank->setIsInProgress(false);
         }
 
