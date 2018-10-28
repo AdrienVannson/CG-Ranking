@@ -72,9 +72,9 @@ class Game
     protected $timeBetweenUpdates;
 }
 
-function getGames ($requestOptions='')
+function getGames ($request='SELECT id FROM games ORDER BY name')
 {
-    $request = get_db()->prepare('SELECT id FROM games ' . $requestOptions . ' ORDER BY name');
+    $request = get_db()->prepare($request);
     $request->execute(array());
 
     $games = [];
@@ -88,12 +88,12 @@ function getGames ($requestOptions='')
 
 function getMultis ()
 {
-    return getGames('WHERE isContest=0 AND formattedName != "global"');
+    return getGames('SELECT id FROM games WHERE isContest=0 AND formattedName != "global" ORDER BY name');
 }
 
 function getContests ()
 {
-    return getGames('WHERE isContest=1 AND formattedName != "global"');
+    return getGames('SELECT id FROM games WHERE isContest=1 ORDER BY id DESC');
 }
 
 function getGlobal ()
@@ -106,5 +106,5 @@ function getGlobal ()
 
 function getCurrentContests ()
 {
-    return getGames('WHERE isContest=1 AND isWatched=1');
+    return getGames('SELECT id FROM games WHERE isContest=1 AND isWatched=1 ORDER BY name');
 }
