@@ -67,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     M.FloatingActionButton.init(document.querySelectorAll('.fixed-action-btn'));
 
+    M.Dropdown.init(document.querySelectorAll('.dropdown-trigger'));
+
     chart.resize();
 });
 
