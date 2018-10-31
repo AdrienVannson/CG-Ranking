@@ -56,6 +56,9 @@ include_once(__DIR__.'/model/Game.class.php');
 
                         $game = getGlobal();
                         echo '<option value="' . $game->getId() . '">' . $game->getName() . '</option>';
+
+                        $game = getClashOfCode();
+                        echo '<option value="' . $game->getId() . '">' . $game->getName() . '</option>';
                         ?>
 
                         <optgroup label="Multiplayer puzzles">

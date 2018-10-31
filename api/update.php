@@ -41,6 +41,10 @@ foreach (getGames() as $game) {
         $url .= 'getGlobalLeaderboard';
         $requestContent = '[1, {"active":false,"column":"","filter":""}, "2af0331f8cc571c179f93f3db8b8ecd25292201", true, "global"]';
     }
+    else if ($game->getFormattedName() == 'clash-of-code') {
+        $url .= 'getClashLeaderboard';
+        $requestContent = '[1,{"keyword":"","active":false,"column":"","filter":""},"2af0331f8cc571c179f93f3db8b8ecd25292201",true,"global",null]';
+    }
     else {
         if ($game->getIsContest()) {
             $url .= 'getFilteredChallengeLeaderboard';

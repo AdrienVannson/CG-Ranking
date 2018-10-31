@@ -88,7 +88,7 @@ function getGames ($request='SELECT id FROM games ORDER BY name')
 
 function getMultis ()
 {
-    return getGames('SELECT id FROM games WHERE isContest=0 AND formattedName != "global" ORDER BY name');
+    return getGames('SELECT id FROM games WHERE isContest=0 AND formattedName != "global" AND formattedName != "clash-of-code" ORDER BY name');
 }
 
 function getContests ()
@@ -99,6 +99,14 @@ function getContests ()
 function getGlobal ()
 {
     $request = get_db()->prepare('SELECT id FROM games WHERE formattedName = "global"');
+    $request->execute(array());
+
+    return new Game($request->fetch()['id']);
+}
+
+function getClashOfCode ()
+{
+    $request = get_db()->prepare('SELECT id FROM games WHERE formattedName = "clash-of-code"');
     $request->execute(array());
 
     return new Game($request->fetch()['id']);
