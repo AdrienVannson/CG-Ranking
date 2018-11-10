@@ -35,7 +35,7 @@ var chart = new Chart(document.getElementById('chart').getContext('2d'), {
             }]
         },
         tooltips: {
-            mode: 'index',
+            mode: 'nearest',
             intersect: false,
             callbacks: {
                 label: function (tooltipItems, data) {
@@ -50,7 +50,7 @@ var chart = new Chart(document.getElementById('chart').getContext('2d'), {
                         res += ' (' + agentsIDs[playerIndex][rankIndex] + ')';
                     }
                     return res;
-                },
+                }
             }
         }
     }
