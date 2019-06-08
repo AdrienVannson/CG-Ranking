@@ -17,9 +17,9 @@ include_once(__DIR__.'/model/Game.class.php');
 
     <ul id="other-tools" class="dropdown-content">
         <li><a href="http://cgstats.magusgeek.com/" target="_blank" rel="noopener noreferrer">CG Stats</a></li>
-        <li><a href="https://apps.rezonux.com/codingame/"target="_blank" rel="noopener noreferrer">CG Points Details</a></li>
-        <li><a href="https://cgstats.crocoware.com/"target="_blank" rel="noopener noreferrer">CG Puzzle Status</a></li>
-        <li><a href="https://cgmulti.azke.fr/players"target="_blank" rel="noopener noreferrer">CG Multis</a></li>
+        <li><a href="https://apps.rezonux.com/codingame/" target="_blank" rel="noopener noreferrer">CG Points Details</a></li>
+        <li><a href="https://cgstats.crocoware.com/" target="_blank" rel="noopener noreferrer">CG Puzzle Status</a></li>
+        <li><a href="https://cgmulti.azke.fr/players" target="_blank" rel="noopener noreferrer">CG Multis</a></li>
     </ul>
 
     <nav>
@@ -150,7 +150,7 @@ include_once(__DIR__.'/model/Game.class.php');
                 CG-Ranking is a tool that shows the evolution of ranking on CodinGame.<br/>
 
                 It's fully open-source (MIT license):
-                <a href="">https://github.com/AdrienVannson/CG-Ranking</a>
+                <a href="https://github.com/AdrienVannson/CG-Ranking">https://github.com/AdrienVannson/CG-Ranking</a>
             </p>
 
             <p>Developed by Adrien VANNSON (contact: <a href="mailto:adrien.vannson@protonmail.com">adrien.vannson@protonmail.com</a>)</p>
