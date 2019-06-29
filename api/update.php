@@ -61,7 +61,7 @@ foreach (getGames() as $game) {
         false,
         stream_context_create(array(
             'http' => array(
-                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                'header'  => 'Content-Type: application/json',
                 'method'  => 'POST',
                 'content' => $requestContent
             )
