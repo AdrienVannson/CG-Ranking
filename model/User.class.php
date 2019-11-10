@@ -11,7 +11,7 @@ class User
 
         if (is_string($info)) {
 
-            $request = $db->prepare('SELECT id FROM users WHERE pseudo=?');
+            $request = $db->prepare('SELECT id FROM cgranking_users WHERE pseudo=?');
             $request->execute(array($info));
 
             if ($data = $request->fetch()) {
@@ -27,7 +27,7 @@ class User
             $this->id = $info;
 
             if ($this->id != -1) {
-                $request = $db->prepare('SELECT pseudo FROM users WHERE id=?');
+                $request = $db->prepare('SELECT pseudo FROM cgranking_users WHERE id=?');
                 $request->execute(array($this->id));
                 $data = $request->fetch();
 
@@ -45,7 +45,7 @@ class User
         $db = get_db();
 
         if ($this->id == -1) {
-            $results = $db->prepare('INSERT INTO users (pseudo) VALUES (?);');
+            $results = $db->prepare('INSERT INTO cgranking_users (pseudo) VALUES (?);');
             $results->execute(array(
                     $this->pseudo
             ));
@@ -55,7 +55,7 @@ class User
             $this->id = $datas['id'];
         }
         else {
-            $results = $db->prepare('UPDATE users SET pseudo=? WHERE id=?;');
+            $results = $db->prepare('UPDATE cgranking_users SET pseudo=? WHERE id=?;');
             $results->execute(array(
                     $this->pseudo,
                     $this->id

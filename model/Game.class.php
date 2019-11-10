@@ -11,7 +11,7 @@ class Game
 
         $this->id = $id;
 
-        $request = $db->prepare('SELECT * FROM games WHERE id=?');
+        $request = $db->prepare('SELECT * FROM cgranking_games WHERE id=?');
         $request->execute(array($this->id));
         $data = $request->fetch();
 
@@ -26,7 +26,7 @@ class Game
     {
         $db = get_db();
 
-        $request = $db->prepare('SELECT MAX(date) AS lastSavingDate FROM ranks WHERE game=?');
+        $request = $db->prepare('SELECT MAX(date) AS lastSavingDate FROM cgranking_ranks WHERE game=?');
         $request->execute(array($this->id));
         $data = $request->fetch();
 
@@ -72,7 +72,7 @@ class Game
     protected $timeBetweenUpdates;
 }
 
-function getGames ($request='SELECT id FROM games ORDER BY name')
+function getGames ($request='SELECT id FROM cgranking_games ORDER BY name')
 {
     $request = get_db()->prepare($request);
     $request->execute(array());
@@ -88,17 +88,17 @@ function getGames ($request='SELECT id FROM games ORDER BY name')
 
 function getMultis ()
 {
-    return getGames('SELECT id FROM games WHERE isContest=0 AND formattedName != "global" AND formattedName != "clash-of-code" ORDER BY name');
+    return getGames('SELECT id FROM cgranking_games WHERE isContest=0 AND formattedName != "global" AND formattedName != "clash-of-code" ORDER BY name');
 }
 
 function getContests ()
 {
-    return getGames('SELECT id FROM games WHERE isContest=1 ORDER BY id DESC');
+    return getGames('SELECT id FROM cgranking_games WHERE isContest=1 ORDER BY id DESC');
 }
 
 function getGlobal ()
 {
-    $request = get_db()->prepare('SELECT id FROM games WHERE formattedName = "global"');
+    $request = get_db()->prepare('SELECT id FROM cgranking_games WHERE formattedName = "global"');
     $request->execute(array());
 
     return new Game($request->fetch()['id']);
@@ -106,7 +106,7 @@ function getGlobal ()
 
 function getClashOfCode ()
 {
-    $request = get_db()->prepare('SELECT id FROM games WHERE formattedName = "clash-of-code"');
+    $request = get_db()->prepare('SELECT id FROM cgranking_games WHERE formattedName = "clash-of-code"');
     $request->execute(array());
 
     return new Game($request->fetch()['id']);
@@ -114,5 +114,5 @@ function getClashOfCode ()
 
 function getCurrentContests ()
 {
-    return getGames('SELECT id FROM games WHERE isContest=1 AND isWatched=1 ORDER BY name');
+    return getGames('SELECT id FROM cgranking_games WHERE isContest=1 AND isWatched=1 ORDER BY name');
 }

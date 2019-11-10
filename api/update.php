@@ -36,6 +36,8 @@ foreach (getGames() as $game) {
     }
     $gameSaved = true;
 
+    echo $game->getName() . "\n";
+
     $url = 'https://www.codingame.com/services/LeaderboardsRemoteService/';
     if ($game->isGlobal()) {
         $url .= 'getGlobalLeaderboard';
@@ -80,7 +82,7 @@ foreach (getGames() as $game) {
 
         $pseudo = $dataUser['codingamer']['pseudo'];
 
-        //echo $dataUser['rank'] . ' ' . $pseudo . "\n";
+        echo $dataUser['rank'] . ' ' . $pseudo . "\n";
 
         $user = new User($pseudo);
         $user->save();

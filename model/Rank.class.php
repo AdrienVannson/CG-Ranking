@@ -12,7 +12,7 @@ class Rank
         $this->id = $id;
 
         if($this->id != -1) {
-            $request = $db->prepare('SELECT * FROM ranks WHERE id=?');
+            $request = $db->prepare('SELECT * FROM cgranking_ranks WHERE id=?');
             $request->execute(array($this->id));
             $data = $request->fetch();
 
@@ -30,7 +30,7 @@ class Rank
         $db = get_db();
 
         if ($this->id == -1) {
-            $results = $db->prepare('INSERT INTO ranks (date, game, user, rank, agentID, isInProgress) VALUES (?, ?, ?, ?, ?, ?);');
+            $results = $db->prepare('INSERT INTO cgranking_ranks (date, game, user, rank, agentID, isInProgress) VALUES (?, ?, ?, ?, ?, ?);');
             $results->execute(array(
                     $this->date,
                     $this->game,
@@ -45,7 +45,7 @@ class Rank
             $this->id = $datas['id'];
         }
         else {
-            $results = $db->prepare('UPDATE ranks SET date=?, game=?, user=?, rank=?, agentID=?, isInProgress=? WHERE id=?;');
+            $results = $db->prepare('UPDATE cgranking_ranks SET date=?, game=?, user=?, rank=?, agentID=?, isInProgress=? WHERE id=?;');
             $results->execute(array(
                     $this->date,
                     $this->game,
