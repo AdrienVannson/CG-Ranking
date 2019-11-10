@@ -1,11 +1,11 @@
 <?php
 // Save the leaderboard: must be executed every hour
 
-include_once('../config.php');
+include_once(__DIR__.'/../config.php');
 
-include_once('../model/User.class.php');
-include_once('../model/Rank.class.php');
-include_once('../model/Game.class.php');
+include_once(__DIR__.'/../model/User.class.php');
+include_once(__DIR__.'/../model/Rank.class.php');
+include_once(__DIR__.'/../model/Game.class.php');
 
 
 $gameSaved = false;

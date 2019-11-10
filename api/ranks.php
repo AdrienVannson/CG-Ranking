@@ -1,6 +1,6 @@
 <?php
-include_once('../model/User.class.php');
-include_once('../model/Rank.class.php');
+include_once(__DIR__.'/../model/User.class.php');
+include_once(__DIR__.'/../model/Rank.class.php');
 
 $db = get_db();
 
