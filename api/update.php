@@ -38,10 +38,10 @@ foreach (getGames() as $game) {
 
     echo $game->getName() . "\n";
 
-    $url = 'https://www.codingame.com/services/LeaderboardsRemoteService/';
+    $url = 'https://www.codingame.com/services/Leaderboards/';
     if ($game->isGlobal()) {
         $url .= 'getGlobalLeaderboard';
-        $requestContent = '[1, {"active":false,"column":"","filter":""}, "2af0331f8cc571c179f93f3db8b8ecd25292201", true, "global"]';
+        $requestContent = '[1, "GENERAL", {"active":false,"column":"","filter":""}, "2af0331f8cc571c179f93f3db8b8ecd25292201", true, "global"]';
     }
     else if ($game->getFormattedName() == 'clash-of-code') {
         $url .= 'getClashLeaderboard';
@@ -70,8 +70,9 @@ foreach (getGames() as $game) {
         ))
     );
 
-    $data = json_decode($data, true);;
-    $users = $data['success']['users'];
+    $data = json_decode($data, true);
+    print_r($data);
+    $users = $data['users'];
 
     $date = date("Y-m-d H:i:s");
 
