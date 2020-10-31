@@ -15,13 +15,6 @@ include_once(__DIR__.'/model/Game.class.php');
 </head>
 <body>
 
-    <ul id="other-tools" class="dropdown-content">
-        <li><a href="http://cgstats.magusgeek.com/" target="_blank" rel="noopener noreferrer">CG Stats</a></li>
-        <li><a href="https://apps.rezonux.com/codingame/" target="_blank" rel="noopener noreferrer">CG Points Details</a></li>
-        <li><a href="https://cgstats.crocoware.com/" target="_blank" rel="noopener noreferrer">CG Puzzle Status</a></li>
-        <li><a href="https://cgmulti.azke.fr/players" target="_blank" rel="noopener noreferrer">CG Multis</a></li>
-    </ul>
-
     <nav>
         <div class="nav-wrapper deep-purple">
             <a href="#" class="brand-logo center">CG Ranking</a>
@@ -30,9 +23,6 @@ include_once(__DIR__.'/model/Game.class.php');
                     <a href="#" id="arrow-back" onclick="update()">
                         <i class="material-icons">refresh</i>
                     </a>
-                </li>
-                <li>
-                    <a class="dropdown-trigger" href="#" data-target="other-tools">Other tools<i class="material-icons right">arrow_drop_down</i></a>
                 </li>
                 <li>
                     <a class="modal-trigger" href="#about">About</a>
