@@ -135,15 +135,14 @@ include_once(__DIR__.'/model/Game.class.php');
     <!-- About -->
     <div class="modal" id="about">
         <div class="modal-content">
-            <h2>About CG Ranking</h2>
+            <h2>About CG-Ranking</h2>
             <p>
-                CG-Ranking is a tool that shows the evolution of ranking on CodinGame.<br/>
-
-                It's fully open-source (MIT license):
+                CG-Ranking is an online tool displaying the evolution of players' ranking on CodinGame.<br/>
+                It is open-source (MIT license):
                 <a href="https://github.com/AdrienVannson/CG-Ranking">https://github.com/AdrienVannson/CG-Ranking</a>
             </p>
 
-            <p>Developed by Adrien VANNSON (contact: <a href="mailto:adrien.vannson@protonmail.com">adrien.vannson@protonmail.com</a>)</p>
+            <p>Developed by Adrien Vannson</p>
         </div>
         <div class="modal-footer">
             <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat">Close</a>
